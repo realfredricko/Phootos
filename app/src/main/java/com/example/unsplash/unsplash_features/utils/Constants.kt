@@ -1,8 +1,10 @@
 package com.example.unsplash.unsplash_features.utils
 
+import com.example.unsplash.BuildConfig
+
 object Constants {
-    const val UNSPLASH_DATABASE ="unsplash_database"
-    const val UNSPLASH_PHOTOS_TABLE = "unsplash_photos_table"
+    const val PHOTO_DATABASE ="photo_database"
+    const val PHOTOS_TABLE = "photos_table"
     const val BASE_URL = "https://api.unsplash.com"
-    const val UNSPLASH_REMOTE_TABLE ="unsplash_remote_table"
+    const val PHOTO_REMOTE_TABLE ="photo_remote_table"
 }

@@ -20,7 +20,7 @@ class Repository @Inject constructor(
     @OptIn(ExperimentalPagingApi::class)
     fun getAllPhotos(): Flow<PagingData<Photo>> {
 val pagingSourceFactory = {
-    photosDatabase.unsplashPhotosDao().insertAllPhotos()
+    photosDatabase.photosDao().getAllPhotos()
 }
         return  Pager(
             config = PagingConfig(pageSize = 10),
@@ -32,10 +32,6 @@ val pagingSourceFactory = {
         ).flow
     }
 
-         fun getAllPhotos(page: Int, perPage: Int): List<Photo> {
-            TODO("Not yet implemented")
-        }
-
         fun searchAllPhotos(query: String): Flow<PagingData<PhotosAPI>>{
             return Pager(
                 config = PagingConfig(pageSize = 10),
@@ -45,4 +41,3 @@ val pagingSourceFactory = {
             ).flow
         }
     }
-}

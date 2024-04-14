@@ -10,11 +10,11 @@ import com.example.unsplash.unsplash_features.data.model.Photo
 //Provides methods for the app to query,insert....
 @Dao
 interface PhotosDao {
-        @Query("SELECT * FROM unsplash_photos_table")
-        fun insertAllPhotos():PagingSource<Int,Photo>
+        @Query("SELECT * FROM photos_table")
+        fun getAllPhotos():PagingSource<Int,Photo>
         @Insert(onConflict = OnConflictStrategy.REPLACE)
         suspend fun addPhotos(photos: List<Photo>)
-        @Query("DELETE FROM unsplash_photos_table")
+        @Query("DELETE FROM photos_table")
         suspend fun clearAllPhotos()
 
 }

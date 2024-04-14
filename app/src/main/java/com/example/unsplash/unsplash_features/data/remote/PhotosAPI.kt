@@ -9,9 +9,9 @@ import retrofit2.http.Query
 
 interface PhotosAPI {
     companion object {
-        const val API_KEY  = BuildConfig.API_KEY
+         val apiKey = BuildConfig.API_KEY
     }
-    @Headers("Authorization: Client-ID $API_KEY")
+    /*@Headers("Authorization: Client-ID $API_KEY")*/
     @GET("/photos")
     suspend fun getAllPhotos(
         @Query("page:Int")page:Int,

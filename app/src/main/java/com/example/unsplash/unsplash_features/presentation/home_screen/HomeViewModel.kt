@@ -10,5 +10,5 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     repository: Repository
 ):ViewModel(){
-    val getAllPhoto = repository.getAllPhotos()
+    val getAllPhotos = repository.getAllPhotos()
 }

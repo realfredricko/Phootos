@@ -21,10 +21,28 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.example.unsplash.unsplash_features.data.model.Photo
 import com.example.unsplash.unsplash_features.presentation.home_screen.component.HomeScreenContent
+import com.example.unsplash.unsplash_features.presentation.home_screen.component.PhotoList
 import com.example.unsplash.unsplash_features.utils.Screens
-
+import kotlinx.coroutines.flow.Flow
+@Composable
+fun HomeBottomAppBar(onHomeClicked:() -> Unit, onSearchClicked: () -> Unit) {
+    BottomAppBar (modifier = Modifier
+        .padding(10.dp)
+        .clip(RoundedCornerShape(20.dp)),
+        containerColor = Color(0XFFFF9800)
+    ){
+        Row(modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceAround) {
+            Icon(imageVector = Icons.Default.Home, contentDescription ="Home" )
+            Icon(imageVector = Icons.Default.Search, contentDescription ="Search" )
+        }
+    }
+}
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -32,7 +50,7 @@ fun HomeScreen(
     navController: NavController,
                homeViewModel: HomeViewModel = viewModel()){
 
-   val getAllPhoto = homeViewModel.getAllPhoto.collectAsLazyPagingItems()
+   val  = homeViewModel.getAllPhotos.collectAsLazyPagingItems()
 Scaffold (
     bottomBar = {
         HomeBottomAppBar(
@@ -44,24 +62,9 @@ Scaffold (
             })
     },
     content = {
-        HomeScreenContent(items = getAllPhoto )
+        HomeScreenContent(flow = )
     }
 
 )
 }
 
-@Composable
-fun HomeBottomAppBar(onHomeClicked: () -> Unit, onSearchClicked: () -> Unit) {
-    BottomAppBar (modifier = Modifier.padding(10.dp)
-        .clip(RoundedCornerShape(20.dp)),
-        containerColor = Color(0XFFFF9800)
-    ){
-        Row(modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround) {
-            Icon(imageVector = Icons.Default.Home, contentDescription ="Home" )
-            Icon(imageVector = Icons.Default.Search, contentDescription ="Search" )
-        }
-    }
-
-}

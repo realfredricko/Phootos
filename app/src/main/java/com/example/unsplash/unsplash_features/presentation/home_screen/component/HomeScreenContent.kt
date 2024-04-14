@@ -13,20 +13,7 @@ import com.example.unsplash.unsplash_features.data.model.Photo
 import kotlinx.coroutines.flow.Flow
 
 @Composable
-/*fun HomeScreenContent(items: LazyPagingItems<Photo>) {
-    Log.d("Error", items.loadState.toString())
-
-    {
-        items(
-            items
-            ,
-
-        ) {
-        }
-    }
-}/
- */
-fun HomeScreenContent(flow:Flow<PagingData<Photo>>){
+fun HomeScreenContent(flow: Flow<PagingData<Photo>>){
    val lazyPagingItems = flow.collectAsLazyPagingItems()
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -38,6 +25,7 @@ fun HomeScreenContent(flow:Flow<PagingData<Photo>>){
                 photo?: throw IllegalArgumentException("Item key should not be null")
             }){
                 photo ->
-        photo?.let { PhotoItem(photo = photo) }}
+        photo?.let { photo }}
         }
     }
+
