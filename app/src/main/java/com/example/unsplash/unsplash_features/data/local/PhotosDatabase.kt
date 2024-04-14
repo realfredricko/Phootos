@@ -13,6 +13,6 @@ import com.example.unsplash.unsplash_features.data.model.PhotosRemoteKeys
 // as instances of the associated data entity
 @Database(entities = [Photo::class,PhotosRemoteKeys::class], version = 1)
 abstract class PhotosDatabase:RoomDatabase() {
-    abstract fun unsplashPhotosDao():PhotosDao
-    abstract fun unsplashRemoteKeysDao():PhotosRemoteKeysDao
+    abstract fun photosDao():PhotosDao
+    abstract fun photosRemoteKeysDao():PhotosRemoteKeysDao
 }

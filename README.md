@@ -1,4 +1,4 @@
-# UnsplashApi
+# Phootos
 
 ## Overview
 This is a todos app project that allows users record their tasks for easy remembrance. It follows a modern Android architecture using Jetpack Compose for the user interface, ViewModel for managing data, Dagger/Hilt for dependency injection and MVVM for a clean and maintainable codebase.
@@ -9,7 +9,8 @@ This is a todos app project that allows users record their tasks for easy rememb
 - **ViewModel**: Manages UI-related data and communicates with the data layer.
 - **Dagger/Hilt**: For dependency injection, ensuring a modular and maintainable codebase.
 - **MVVM Architecture**: Ensures separation of concerns and maintainability of the codebase.
-- **Clean Architecture**: Promotes a clean separation of layers, making the app more testable and scalable.
+- **Paging Library**: Promotes a clean separation of layers, making the app more testable and scalable.
+  **Room**: Promotes a clean separation of layers, making the app more testable and scalable.
 
 ## Architecture Overview
 The project follows the principles of Clean Architecture, consisting of three main layers:
@@ -24,6 +25,8 @@ The project follows the principles of Clean Architecture, consisting of three ma
 - [Dagger/Hilt](https://dagger.dev/hilt/): For dependency injection.
 - [Jetpack Compose](https://developer.android.com/jetpack/compose): For building the UI.
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel): For managing UI-related data.
+- [Room]():
+- [Paging]():
 - [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines): For handling asynchronous operations.
 
 ## Architecture

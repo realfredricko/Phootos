@@ -20,8 +20,8 @@ class PhotosRemoteMediator (
     private val photosDatabase: PhotosDatabase,
     private val photosAPI: PhotosAPI
 ) : RemoteMediator<Int, Photo>() {
-    private val unsplashPhotosDao = photosDatabase.unsplashPhotosDao()
-    private val unsplashRemoteKeysDao = photosDatabase.unsplashRemoteKeysDao()
+    private val photosDao = photosDatabase.photosDao()
+    private val photosRemoteKeysDao = photosDatabase.photosRemoteKeysDao()
 
     // Load method fetches new data from the api and saves it to the local database
 
@@ -31,17 +31,18 @@ class PhotosRemoteMediator (
     ): MediatorResult {
         return try {
             val currentPage = when (loadType) {
+                /**Used to refresh or initial load of a pagingData*/
                 LoadType.REFRESH -> 1
-
+/**Used to load at the start of a pagingData*/
                 LoadType.PREPEND -> {
-                    val remoteKeys = getRemoteKeyInitialItem(state)
+                    val remoteKeys = getInitialItemRemoteKey(state)
                     remoteKeys?.prePage ?: return MediatorResult.Success(
                         endOfPaginationReached = remoteKeys != null
                     )
                 }
-
+/**Used to load at the end of a pagingData*/
                 LoadType.APPEND -> {
-                    val remoteKeys = getRemoteKeyLastItem(state)
+                    val remoteKeys = getLastItemRemoteKey(state)
                     remoteKeys?.nextPage ?: return MediatorResult.Success(
                         endOfPaginationReached = remoteKeys != null
                     )
@@ -56,8 +57,8 @@ class PhotosRemoteMediator (
 
             photosDatabase.withTransaction {
                 if (loadType == LoadType.REFRESH) {
-                    unsplashPhotosDao.clearAllPhotos()
-                    unsplashRemoteKeysDao.clearRemoteKeys()
+                    photosDao.clearAllPhotos()
+                    photosRemoteKeysDao.clearRemoteKeys()
                 }
 
                 val keys = response.map { photo ->
@@ -68,8 +69,8 @@ class PhotosRemoteMediator (
                     )
                 }
 
-                unsplashPhotosDao.addPhotos(response)
-                unsplashRemoteKeysDao.addAllRemoteKeys(keys)
+                photosDao.addPhotos(response)
+                photosRemoteKeysDao.addAllRemoteKeys(keys)
             }
 
             MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
@@ -77,37 +78,37 @@ class PhotosRemoteMediator (
             MediatorResult.Error(e)
         }
     }
-private  suspend fun getRemoteKeyClosestToPosition(
+private fun getRemoteKeyClosestToPosition(
     state: PagingState<Int, Photo>
 ):PhotosRemoteKeys?{
     return  state.anchorPosition?.let {
         position ->
         state.closestItemToPosition(position)?.id?.let { id ->
-            unsplashRemoteKeysDao.getRemoteKeys(id = id)
+            photosRemoteKeysDao.getRemoteKeys(id = id)
         }
     }
 }
 
 
-private suspend fun getRemoteKeyInitialItem(
+private fun getInitialItemRemoteKey(
     state: PagingState<Int, Photo>
 ): PhotosRemoteKeys? {
     return  state.pages.firstOrNull{
         it.data.isNotEmpty()
     }?.data?.firstOrNull()?.let {
         photo ->
-        unsplashRemoteKeysDao.getRemoteKeys(id = photo.id)
+        photosRemoteKeysDao.getRemoteKeys(id = photo.id)
     }
 }
 
-private suspend fun getRemoteKeyLastItem(
+private fun getLastItemRemoteKey(
     state: PagingState<Int, Photo>
 ): PhotosRemoteKeys? {
     return  state.pages.lastOrNull{
         it.data.isNotEmpty()
     }?.data?.lastOrNull()?.let {
             photo ->
-        unsplashRemoteKeysDao.getRemoteKeys(id = photo.id)
+        photosRemoteKeysDao.getRemoteKeys(id = photo.id)
     }
 }
 }

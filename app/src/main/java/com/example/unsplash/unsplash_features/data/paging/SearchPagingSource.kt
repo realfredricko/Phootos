@@ -9,8 +9,8 @@ class SearchPagingSource @Inject constructor(
     private val photosAPI: PhotosAPI,
     private val query:String
 ):PagingSource<Int,PhotosAPI>(){
-//Shows how to retrieve data from the corresponding data source
-    override suspend fun load(params: PagingSource.LoadParams<Int>): PagingSource.LoadResult<Int, PhotosAPI> {
+/**Shows how to retrieve data from the corresponding dataSource*/
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PhotosAPI> {
 val currentPage = params.key?:1
 
     return  try {
@@ -35,9 +35,13 @@ prevKey = null,
         LoadResult.Error(e)
     }
     }
-
+/**provides  a key used for the initial load for the pagingSource due
+to the invalidation of the existing pagingSource.The key
+ is provided to load via LoadParams.key.The last accessed position can be retrieved via
+ state.anchorPosition
+*/
     override fun getRefreshKey(state: PagingState<Int, PhotosAPI>): Int? {
         return state.anchorPosition
+        }
     }
 
-}

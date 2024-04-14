@@ -3,16 +3,11 @@ package com.example.unsplash.unsplash_features.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHost
+import androidx.navigation.compose.rememberNavController
 import com.example.unsplash.ui.theme.UnsplashTheme
-import com.example.unsplash.unsplash_features.navigation.AppNavigation
 import com.example.unsplash.unsplash_features.utils.Screens
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +24,18 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ){
                     val navController = rememberNavController()
-                    AppNavigation(navController = navController)
+                    NavHost(navController = navController ,
+                        startDestination = Screens.Home.route,
+                    ){
+                        composable(route = Screens.Home.route) {
+                            HomeScreen(navController = navController)
+                        }
+
+                        composable(route = Screens.Search.route) {
+                            SearchScreen(navController = navController)
+                        }
+                    }
+                    //AppNavigation(navController = navController)
 
             }
         }

@@ -21,8 +21,11 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        val prop = new Properties().apply{
+            load(FileInputStream(File(rootProject.rootDir,"local.properties")))
+        }
 
-        buildConfigField ("String","API_KEY", "API_KEY")
+        buildConfigField ("String","API_KEY", prop.getProperty("API_KEY"))
     }
     buildFeatures{
         buildConfig = true
