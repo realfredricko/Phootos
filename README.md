@@ -1,8 +1,12 @@
 # Phootos
 
 ## Overview
-This is a todos app project that allows users record their tasks for easy remembrance. It follows a modern Android architecture using Jetpack Compose for the user interface, ViewModel for managing data, Dagger/Hilt for dependency injection and MVVM for a clean and maintainable codebase.
+Phootos, a stunning Android application designed to explore and discover beautiful images from Unsplash. Phootos leverages modern Android development tools such as the Paging Library, ViewModel, Retrofit, Coroutine Flow, and Jetpack Compose to provide a seamless and delightful user experience.
 
+## Features
+- **Explore Unsplash**: Browse through an extensive collection of high-quality images sourced from Unsplash.
+- **Infinite Scrolling**: Enjoy endless scrolling through images, seamlessly loaded using the Paging Library.
+- **Search Functionality**: Easily find images by searching for specific keywords or topics.
 
 ## Technologies Used
 - **Jetpack Compose**: Used for building the user interface, providing a modern and declarative approach to UI development.
@@ -56,3 +60,5 @@ Contributions, issues, and feature requests are welcome!
   `git push origin feature-name`
 
 - Create a PR to the **master** branch
+
+
