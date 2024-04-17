@@ -29,8 +29,8 @@ The project follows the principles of Clean Architecture, consisting of three ma
 - [Dagger/Hilt](https://dagger.dev/hilt/): For dependency injection.
 - [Jetpack Compose](https://developer.android.com/jetpack/compose): For building the UI.
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel): For managing UI-related data.
-- [Room]():
-- [Paging]():
+- [Room](https://developer.android.com/training/data-storage/room):Simplifies database work and serves as an access point to the underlying SQLite database
+- [Paging](https://developer.android.com/topic/libraries/architecture/paging):The Paging library helps you load and display pages of data from a larger dataset from local storage or over a network.
 - [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines): For handling asynchronous operations.
 
 ## Architecture
