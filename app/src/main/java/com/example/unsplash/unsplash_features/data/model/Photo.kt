@@ -13,7 +13,6 @@ data class Photo(
     @Embedded
     val id:String,
     val urls:PhotoUrls,
-    val likes:Int,
     val color:String,
     val user:PhotoCreator,
 val description:String?,
