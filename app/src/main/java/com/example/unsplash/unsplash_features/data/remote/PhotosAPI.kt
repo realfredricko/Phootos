@@ -1,5 +1,7 @@
 package com.example.unsplash.unsplash_features.data.remote
 
+import androidx.paging.PagingData
+import androidx.paging.compose.LazyPagingItems
 import com.example.unsplash.BuildConfig
 import com.example.unsplash.unsplash_features.data.model.Photo
 import com.example.unsplash.unsplash_features.data.model.SearchResults

@@ -3,7 +3,7 @@ package com.example.unsplash.injector
 import android.content.Context
 import androidx.room.Room
 import com.example.unsplash.unsplash_features.data.local.PhotosDatabase
-import com.example.unsplash.unsplash_features.utils.Constants.UNSPLASH_DATABASE
+import com.example.unsplash.unsplash_features.utils.Constants.PHOTO_DATABASE
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +23,7 @@ object RoomDatabaseModule {
         return Room.databaseBuilder(
             context,
             PhotosDatabase::class.java,
-            UNSPLASH_DATABASE
+            PHOTO_DATABASE
         )
             .build()
 

@@ -18,7 +18,7 @@ import javax.inject.Inject
 @OptIn(ExperimentalPagingApi::class)
 class PhotosRemoteMediator (
     private val photosDatabase: PhotosDatabase,
-    private val photosAPI: PhotosAPI
+    private val photosAPI: PhotosAPI,
 ) : RemoteMediator<Int, Photo>() {
     private val photosDao = photosDatabase.photosDao()
     private val photosRemoteKeysDao = photosDatabase.photosRemoteKeysDao()
@@ -73,31 +73,32 @@ class PhotosRemoteMediator (
                 photosRemoteKeysDao.addAllRemoteKeys(keys)
             }
 
-            MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
+            MediatorResult.Success(endOfPaginationReached
+            = endOfPaginationReached)
         } catch (e: Exception) {
             MediatorResult.Error(e)
         }
     }
-private fun getRemoteKeyClosestToPosition(
+
+/*private fun getRemoteKeyClosestToPosition(
     state: PagingState<Int, Photo>
 ):PhotosRemoteKeys?{
     return  state.anchorPosition?.let {
         position ->
         state.closestItemToPosition(position)?.id?.let { id ->
-            photosRemoteKeysDao.getRemoteKeys(id = id)
+            photosRemoteKeysDao.getRemoteKeys(id)
         }
     }
-}
+}*/
 
 
 private fun getInitialItemRemoteKey(
     state: PagingState<Int, Photo>
 ): PhotosRemoteKeys? {
-    return  state.pages.firstOrNull{
-        it.data.isNotEmpty()
-    }?.data?.firstOrNull()?.let {
-        photo ->
-        photosRemoteKeysDao.getRemoteKeys(id = photo.id)
+    return state.pages.firstOrNull(){
+        it.data.isNotEmpty()}?.data?.firstOrNull()?.let {
+            photo->
+        photosRemoteKeysDao.getRemoteKeys(photo.id)
     }
 }
 
