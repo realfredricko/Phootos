@@ -8,7 +8,9 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("com.google.devtools.ksp")
     kotlin("plugin.serialization")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
+
 // Function to load local properties
 fun gradleLocalProperties(rootDir: File): Properties {
     val properties = Properties()
@@ -42,7 +44,8 @@ android {
         }
 
         buildTypes {
-            release {
+            getByName("release")
+             {
                 isMinifyEnabled = false
                 proguardFiles(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -58,10 +61,10 @@ android {
             jvmTarget = "1.8"
         }
         buildFeatures {
-            compose = true
+            /*compose = true*/
         }
-        composeOptions {
-            kotlinCompilerExtensionVersion = "1.4.3"
+        composeCompiler {
+            enableStrongSkippingMode = true
         }
         packaging {
             resources {
@@ -120,8 +123,9 @@ dependencies {
 
     //Navigation
     implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("androidx.hilt:hilt-navigation:1.2.0")
     implementation("androidx.navigation:navigation-common-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
     //dagger-hilt
     implementation("com.google.dagger:hilt-android:2.51.1")
     ksp("com.google.dagger:hilt-compiler:2.51.1")

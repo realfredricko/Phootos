@@ -34,8 +34,7 @@ fun SearchScreen(
                 )
             },
             content = {
-                PhotoList(photos = seargi
-                        chedPhotos)
+                PhotoList(photos = searchedPhotos)
             }
         )
     }

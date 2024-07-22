@@ -1,9 +1,9 @@
-package com.example.unsplash.unsplash_features.data.local
+package com.example.unsplash.unsplash_features.data.cache
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.unsplash.unsplash_features.data.local.photosDaos.PhotosDao
-import com.example.unsplash.unsplash_features.data.local.photosDaos.PhotosRemoteKeysDao
+import com.example.unsplash.unsplash_features.data.cache.photosDaos.PhotosDao
+import com.example.unsplash.unsplash_features.data.cache.photosDaos.PhotosRemoteKeysDao
 import com.example.unsplash.unsplash_features.data.model.Photo
 import com.example.unsplash.unsplash_features.data.model.PhotosRemoteKeys
 

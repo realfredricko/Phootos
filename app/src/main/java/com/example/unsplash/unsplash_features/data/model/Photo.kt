@@ -3,7 +3,7 @@ package com.example.unsplash.unsplash_features.data.model
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.unsplash.unsplash_features.data.remote.PhotosAPI
+import com.example.unsplash.unsplash_features.data.network.PhotosAPI
 import com.example.unsplash.unsplash_features.utils.Constants.PHOTOS_TABLE
 import kotlinx.serialization.Serializable
 @Serializable

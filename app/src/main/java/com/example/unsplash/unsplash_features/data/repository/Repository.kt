@@ -4,12 +4,11 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.example.unsplash.unsplash_features.data.local.PhotosDatabase
+import com.example.unsplash.unsplash_features.data.cache.PhotosDatabase
 import com.example.unsplash.unsplash_features.data.model.Photo
-import com.example.unsplash.unsplash_features.data.model.SearchResults
 import com.example.unsplash.unsplash_features.data.paging.PhotosRemoteMediator
 import com.example.unsplash.unsplash_features.data.paging.SearchPagingSource
-import com.example.unsplash.unsplash_features.data.remote.PhotosAPI
+import com.example.unsplash.unsplash_features.data.network.PhotosAPI
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

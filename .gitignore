@@ -14,3 +14,6 @@
 .cxx
 local.properties
 /gradle.properties
+
+# kotlin 2.0
+.kotlin/

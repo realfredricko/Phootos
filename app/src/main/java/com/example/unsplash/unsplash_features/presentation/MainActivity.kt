@@ -23,8 +23,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             UnsplashTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colorScheme.background) {
-                    Unsplash()
+                Surface(
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Phootos()
                 }
             }
         }
@@ -32,9 +34,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Unsplash() {
+fun Phootos() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screens.Home.route) {
+    NavHost(navController = navController,
+        startDestination = Screens.Home.route) {
         composable(route = Screens.Home.route) {
             HomeScreen(navController = navController)
         }

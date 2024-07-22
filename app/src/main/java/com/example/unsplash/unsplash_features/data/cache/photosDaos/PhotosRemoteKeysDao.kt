@@ -1,4 +1,4 @@
-package com.example.unsplash.unsplash_features.data.local.photosDaos
+package com.example.unsplash.unsplash_features.data.cache.photosDaos
 
 import androidx.room.Dao
 import androidx.room.Insert
