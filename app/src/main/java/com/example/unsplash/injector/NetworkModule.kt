@@ -1,6 +1,6 @@
 package com.example.unsplash.injector
 
-import com.example.unsplash.unsplash_features.data.remote.PhotosAPI
+import com.example.unsplash.unsplash_features.data.network.PhotosAPI
 import com.example.unsplash.unsplash_features.utils.Constants.BASE_URL
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module

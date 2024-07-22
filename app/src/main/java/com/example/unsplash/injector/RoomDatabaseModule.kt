@@ -2,7 +2,7 @@ package com.example.unsplash.injector
 
 import android.content.Context
 import androidx.room.Room
-import com.example.unsplash.unsplash_features.data.local.PhotosDatabase
+import com.example.unsplash.unsplash_features.data.cache.PhotosDatabase
 import com.example.unsplash.unsplash_features.utils.Constants.PHOTO_DATABASE
 import dagger.Module
 import dagger.Provides

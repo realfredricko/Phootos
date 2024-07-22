@@ -2,7 +2,7 @@ package com.example.unsplash.unsplash_features.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.unsplash.unsplash_features.data.remote.PhotosAPI
+import com.example.unsplash.unsplash_features.data.network.PhotosAPI
 import javax.inject.Inject
 
 class SearchPagingSource @Inject constructor(

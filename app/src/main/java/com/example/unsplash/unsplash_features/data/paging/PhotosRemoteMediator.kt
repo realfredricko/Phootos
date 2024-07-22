@@ -5,11 +5,10 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import com.example.unsplash.unsplash_features.data.local.PhotosDatabase
+import com.example.unsplash.unsplash_features.data.cache.PhotosDatabase
 import com.example.unsplash.unsplash_features.data.model.Photo
 import com.example.unsplash.unsplash_features.data.model.PhotosRemoteKeys
-import com.example.unsplash.unsplash_features.data.remote.PhotosAPI
-import javax.inject.Inject
+import com.example.unsplash.unsplash_features.data.network.PhotosAPI
 
 //RemoteMediator acts as a signal when app runs out of cached data
 // GET new data from the api and CACHE the data to the local database
