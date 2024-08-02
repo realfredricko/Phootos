@@ -54,15 +54,14 @@ fun HomeBottomAppBar(onHomeClicked: () -> Unit, onSearchClicked: () -> Unit) {
     }
 }
 
-
-@OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(
     navController: NavController,
     homeViewModel: HomeViewModel = viewModel()
 ) {
-    val photos = homeViewModel.getAllPhotos
+    //Collects PagingData and converts it to LazyPagingItems
+    val photos = homeViewModel.getAllPhotos.collectAsLazyPagingItems()
     Scaffold(
         bottomBar = {
             HomeBottomAppBar(
