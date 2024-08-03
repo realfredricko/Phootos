@@ -41,7 +41,7 @@ The app is built using the Modular MVVM architectural pattern and makes heavy us
 ## Getting started
 To get a local copy up and running follow these simple example steps.
    ```bash
-   git clone  https://github.com/realfredricko/To-Dos.git
+   git clone  https://github.com/realfredricko/Phootos.git
 
  ```
    
@@ -59,6 +59,6 @@ Contributions, issues, and feature requests are welcome!
   
   `git push origin feature-name`
 
-- Create a PR to the **master** branch
+- Create a PR to the **main** branch
 
 

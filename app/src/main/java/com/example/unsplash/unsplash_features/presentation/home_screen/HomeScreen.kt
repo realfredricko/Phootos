@@ -61,7 +61,7 @@ fun HomeScreen(
     homeViewModel: HomeViewModel = viewModel()
 ) {
     //Collects PagingData and converts it to LazyPagingItems
-    val photos = homeViewModel.getAllPhotos.collectAsLazyPagingItems()
+    val photo = homeViewModel.getAllPhotos.collectAsLazyPagingItems()
     Scaffold(
         bottomBar = {
             HomeBottomAppBar(
@@ -70,7 +70,7 @@ fun HomeScreen(
             )
         },
         content = {
-            PhotoList(photos = photos)
+            PhotoList(photos = photo)
         }
     )
 }

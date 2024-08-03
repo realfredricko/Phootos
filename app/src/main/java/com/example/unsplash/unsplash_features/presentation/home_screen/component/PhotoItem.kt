@@ -1,10 +1,14 @@
 package com.example.unsplash.unsplash_features.presentation.home_screen.component
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.*
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -14,29 +18,29 @@ import androidx.paging.compose.LazyPagingItems
 import coil.compose.rememberAsyncImagePainter
 import com.example.unsplash.unsplash_features.data.model.Photo
 
+
 @Composable
 fun PhotoList(
     photos: LazyPagingItems<Photo>,
     modifier: Modifier = Modifier
 ) {
-LazyColumn(
-    modifier = modifier
-){
-    items(
-        items = photos,
-        key = {
+    LazyColumn(modifier = modifier){
+     items(
+         items = photos,
+         key ={
 
-        }
-    ){
-        photo ->
-        //Handles the case where photo might be null
-        photo?.let{
-            PhotoItem(photo = it)
-            HorizontalDivider(thickness = 8.dp)
-        }
+         }
+     )
+       {
+           photo ->
+           photo?.let{
+               PhotoItem(photo = it)
+               HorizontalDivider(thickness = 8.dp)
+           }
+       }
     }
 }
-}
+
 @Composable
 fun PhotoItem(photo: Photo) {
     Column (modifier = Modifier
@@ -50,5 +54,5 @@ fun PhotoItem(photo: Photo) {
             contentDescription = "Photo",
             contentScale = ContentScale.Crop
         )
-    }
-}
+    }}
+
