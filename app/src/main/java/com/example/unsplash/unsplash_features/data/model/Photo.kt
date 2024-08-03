@@ -18,11 +18,15 @@ data class Photo(
 val description:String?,
     val alternateDescription:String?
 ) : PhotosAPI {
-    override suspend fun getAllPhotos(page: Int, perPage: Int): List<Photo> {
+    override suspend fun getAllPhotos(page: Int, perPage: Int, apiKey: String): List<Photo> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun searchAllPhotos(query: String, perPage: Int): SearchResults {
+    override suspend fun searchAllPhotos(
+        query: String,
+        perPage: Int,
+        apiKey: String
+    ): SearchResults {
         TODO("Not yet implemented")
     }
 }

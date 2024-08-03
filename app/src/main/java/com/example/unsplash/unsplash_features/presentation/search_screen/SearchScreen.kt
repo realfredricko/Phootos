@@ -10,6 +10,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.unsplash.unsplash_features.presentation.home_screen.component.PhotoList
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -19,7 +20,8 @@ fun SearchScreen(
     searchViewModel: SearchViewModel = viewModel()
 ) {
     val querySearch by searchViewModel.querySearch
-    val searchedPhotos = searchViewModel.searchedPhotos
+    //Collects PagingData and converts it to LazyPagingItems
+    val searchedPhotos = searchViewModel.searchedPhotos.collectAsLazyPagingItems()
 
     Surface(
         color = MaterialTheme.colorScheme.background

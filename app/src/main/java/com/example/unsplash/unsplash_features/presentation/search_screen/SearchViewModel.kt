@@ -31,7 +31,8 @@ class SearchViewModel @Inject constructor(
     fun queryUpdate(query: String) {
         _querySearch.value = query
     }
-
+//Updates search query and fetches the corresponding photos from
+    //the repository
     fun searchUpdate(query: String) {
         viewModelScope.launch {
             repository.searchAllPhotos(query = query)
